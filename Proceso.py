@@ -1,0 +1,2 @@
+class Proceso:
+    print("Hola")
