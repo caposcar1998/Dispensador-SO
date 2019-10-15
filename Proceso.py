@@ -6,14 +6,14 @@ class Proceso:
     disponible = None
     tiempoBloqueo = None
 
-    def __init__(self, nombre, TiempoE, NBloqueos, Disponible):
+    def vencimientoQuantum(self):
+        venc = None
+        return venc
+
+    def __init__(self, nombre, tiempoE, nBloqueos, disponible):
         self.nombre = nombre
         self.tiempoE = tiempoE
         self.nBloqueos = nBloqueos
         self.disponible = disponible
-        self.tiempoBloqueo = vencimientoQuantum
+        self.tiempoBloqueo = 2
         
-    def vencimientoQuantum(self):
-        venc = None
-        print()
-        return venc
