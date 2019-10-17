@@ -1,19 +1,24 @@
 class Proceso:
     
     nombre = None
-    tiempoE = None
-    nBloqueos = None
-    disponible = None
-    tiempoBloqueo = None
+    tiempo_disponible = None 
+    tiempo_cambio = None
+    tiempo_ejecucion = None
+    tiempo_vencimiento_quantum = None
+    tiempo_bloqueo = None
+    tiempo_total = None
+    tiempo_inicial = None
+    tiempo_final = None
 
-    def vencimientoQuantum(self):
-        venc = None
-        return venc
+    
 
-    def __init__(self, nombre, tiempoE, nBloqueos, disponible):
-        self.nombre = nombre
-        self.tiempoE = tiempoE
-        self.nBloqueos = nBloqueos
-        self.disponible = disponible
-        self.tiempoBloqueo = 2
+    def __init__(self, nombre,tiempo_disponible ,tiempo_ejecucion, tiempo_bloqueo ):
+        self.nombre=nombre
+        self.tiempo_disponible= tiempo_disponible
+        self.tiempo_ejecucion = tiempo_ejecucion
+        self.tiempo_bloqueo= tiempo_bloqueo
+
         
+    
+
+    
