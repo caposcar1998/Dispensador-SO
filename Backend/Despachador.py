@@ -7,9 +7,9 @@ class Despachador:
 
     micros = []
     procesos_a_ejecutar = []
-    tBloqueo = 5
-    cambioContexto = 5
-    quantum = 5
+    tBloqueo = 15
+    cambioContexto = 15
+    quantum = 3000
 
     oscar = Proceso("A",300,1500,2)
     manuel = Proceso ("B",250,600,5)
@@ -29,18 +29,28 @@ class Despachador:
         return obj.tiempo_bloqueo*tBloqueo
 
     #Hacer que el proceso pasado por el metodo encuentre su posicion
+    #No encunetra bn la posicion del elemento, al igual que determinar tiempo final
     def determinar_tiempo_inicial(obj,procesos_a_ejecutar):
         counter = 0
         for proceso in procesos_a_ejecutar:
             if counter == 0:
+                obj.tiempo_inicial = 0
                 return 0
             else:
                 counter +=1
-                proceso = proceso-1[obj.tiempo_final]
+                obj.tiempo_inicial =proceso-1[obj.tiempo_final]
+                return proceso-1[obj.tiempo_final]
 
 
-    def determinar_tiempo_final(obj):
-        return obj.tiempo_total+obj.tiempo_inicial
+    def determinar_tiempo_final(obj, procesos_a_ejecutar):
+        counter = 0
+        for proceso in procesos_a_ejecutar:
+            if counter == 0:
+                obj.tiempo_final = obj.tiempo_total
+                return 0
+            else:
+                obj.tiempo_final = obj.tiempo_total+obj.tiempo_inicial
+                return obj.tiempo_total+obj.tiempo_inicial
 
 
     def determinar_tiempo_total(obj):
@@ -52,5 +62,6 @@ class Despachador:
     print(determinar_tiempo_vencimiento_quantum(oscar, quantum, cambioContexto))
     print(determinar_tiempo_bloqueo(oscar, tBloqueo))
     print(determinar_tiempo_inicial(oscar,procesos_a_ejecutar))
-    print(determinar_tiempo_final(oscar))
     print(determinar_tiempo_total(oscar))
+    print(determinar_tiempo_final(oscar))
+    
