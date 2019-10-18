@@ -2,7 +2,7 @@ class Proceso:
     
     nombre = None
     tiempo_disponible = None 
-    tiempo_cambio = None
+    tiempo_cambio_contexto = None
     tiempo_ejecucion = None
     tiempo_vencimiento_quantum = None
     tiempo_bloqueo = None
