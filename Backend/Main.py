@@ -9,7 +9,7 @@ class Main:
     #Aqui se pone el numero de micros que se van a utlizar
     print("Cuantos micros vas a usar perro loco?")
     micros = input()
-    despachador = Despachador(micros)
+    despachador = Despachador()
     print ("Introduce procesos")
     
     #Crear micros que el usuario da
@@ -30,15 +30,20 @@ class Main:
     despachador.procesos_a_ejecutar.append(diego)
     
     
-    def pasar_procesos_a_micros(despachador):
-        pass
+    def pasar_procesos_a_micros(obj):
+        for micro_vacio in despachador.micros:
+            print(micro_vacio)
 
     #Encontrar con n micros cual es el menor
     def asignar_procesos(despachador):
-        pass
+       
+        #Con el micro mas pequeño meter proceso a ejecutar
+        print (despachador.micros)
 
     def detener_en_tiempo_disponible(despachador):
         pass
 
     def ejecutar_despachador(despachador):
         pass
+
+    asignar_procesos(despachador)
