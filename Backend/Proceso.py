@@ -12,7 +12,7 @@ class Proceso:
 
     
 
-    def __init__(self, nombre,tiempo_disponible ,tiempo_ejecucion, tiempo_bloqueo ):
+    def __init__(self, nombre,tiempo_ejecucion,tiempo_disponible , tiempo_bloqueo ):
         self.nombre=nombre
         self.tiempo_disponible= tiempo_disponible
         self.tiempo_ejecucion = tiempo_ejecucion
