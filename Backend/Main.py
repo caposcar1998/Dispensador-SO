@@ -41,12 +41,14 @@ class Main:
             if(entrada_proceso.nombre == menor_desp[2]):
                 entrada_proceso.procesos_ejecucion.append(despachador.procesos_a_ejecutar[0])
                 despachador.procesos_a_ejecutar.pop(0)
-                
+                procesar_metodos()
             else:
                 pass
 
 
-            
+    def procesar_metodos(despachador):
+            pass            
         
         
     pasar_procesos_a_micros(despachador)
+
