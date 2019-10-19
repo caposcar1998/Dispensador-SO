@@ -45,3 +45,5 @@ class Despachador:
         print( obj.tiempo_final)
  
 
+    def determinar_tiempo_ejecucion_micro(obj1, obj2):
+        obj1.tiempoEjecucion += obj2.tiempo_final

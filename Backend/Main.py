@@ -10,13 +10,12 @@ class Main:
     print("Cuantos micros vas a usar perro loco?")
     micros = input()
     despachador = Despachador()
-    print ("Introduce procesos")
     
     #Crear micros que el usuario da
     for i in range(0, int(micros)):
-        i = Micro(0,True)
+        i = Micro(0,True, str(i))
         despachador.micros.append(i)
-
+    
     #Procesos que el usuario da
 
     oscar = Proceso("A",300,1500,2)
@@ -29,21 +28,25 @@ class Main:
     despachador.procesos_a_ejecutar.append(gio)
     despachador.procesos_a_ejecutar.append(diego)
     
-    
-    def pasar_procesos_a_micros(obj):
-        for micro_vacio in despachador.micros:
-            print(micro_vacio)
 
-    #Encontrar con n micros cual es el menor
-    def asignar_procesos(despachador):
-       
-        #Con el micro mas pequeño meter proceso a ejecutar
-        print (despachador.micros)
+    def pasar_procesos_a_micros(despachador):
+        #Crear funcion 1 que regrese menor_desp
+        menor = []
+        for menor_despachador in despachador.micros:
+            menor.append((len(menor_despachador.procesos_ejecucion),menor_despachador.procesos_ejecucion, menor_despachador.nombre))
+        menor_desp = min(menor)
+        
+        #Crear funcion 2
+        for entrada_proceso in despachador.micros:
+            if(entrada_proceso.nombre == menor_desp[2]):
+                entrada_proceso.procesos_ejecucion.append(despachador.procesos_a_ejecutar[0])
+                despachador.procesos_a_ejecutar.pop(0)
+                
+            else:
+                pass
 
-    def detener_en_tiempo_disponible(despachador):
-        pass
 
-    def ejecutar_despachador(despachador):
-        pass
-
-    asignar_procesos(despachador)
+            
+        
+        
+    pasar_procesos_a_micros(despachador)
