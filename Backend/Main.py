@@ -5,6 +5,10 @@ from Proceso import Proceso
 
 class Main:
 
+    tBloqueo = 15
+    cambioContexto = 15
+    quantum = 3000
+
 
     #Aqui se pone el numero de micros que se van a utlizar
     print("Cuantos micros vas a usar perro loco?")
@@ -29,7 +33,7 @@ class Main:
     despachador.procesos_a_ejecutar.append(diego)
     
 
-    def pasar_procesos_a_micros(despachador):
+    def pasar_procesos_a_micros(despachador, quantum, tBloqueo, cambioContexto):
         #Crear funcion 1 que regrese menor_desp
         menor = []
         for menor_despachador in despachador.micros:
@@ -41,14 +45,26 @@ class Main:
             if(entrada_proceso.nombre == menor_desp[2]):
                 entrada_proceso.procesos_ejecucion.append(despachador.procesos_a_ejecutar[0])
                 despachador.procesos_a_ejecutar.pop(0)
-                procesar_metodos()
+
+
+                #metodos que calculan valores de los procesos dentro de los micros
+                despachador.determinar_tiempo_vencimiento_quantum(entrada_proceso.procesos_ejecucion[0], quantum, cambioContexto)
+                despachador.determinar_tiempo_cambio_contexto(entrada_proceso.procesos_ejecucion[0], cambioContexto)
+                despachador.determinar_tiempo_bloqueo(entrada_proceso.procesos_ejecucion[0],tBloqueo)
+                despachador.determinar_tiempo_inicial(entrada_proceso.procesos_ejecucion[0],despachador.micros)
+                despachador.determinar_tiempo_total(entrada_proceso.procesos_ejecucion[0])
+                despachador.determinar_tiempo_final(entrada_proceso.procesos_ejecucion[0],despachador.micros)
+                despachador.determinar_tiempo_ejecucion_micro(entrada_proceso.procesos_ejecucion[0], despachador.micros)
+
             else:
                 pass
 
 
-    def procesar_metodos(despachador):
-            pass            
+    def main (despachador, pasar_procesos_a_micros):
+        for procesos in despachador.procesos_a_ejecutar:
+            print("Para proceso ", procesos.nombre)
+            pasar_procesos_a_micros(despachador, quantum, tBloqueo, cambioContexto)         
         
         
-    pasar_procesos_a_micros(despachador)
+    pasar_procesos_a_micros(despachador, quantum, tBloqueo, cambioContexto) 
 
