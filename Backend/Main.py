@@ -34,37 +34,39 @@ class Main:
     
 
     def pasar_procesos_a_micros(despachador, quantum, tBloqueo, cambioContexto):
-        #Crear funcion 1 que regrese menor_desp
-        menor = []
-        for menor_despachador in despachador.micros:
-            menor.append((len(menor_despachador.procesos_ejecucion),menor_despachador.procesos_ejecucion, menor_despachador.nombre))
-        menor_desp = min(menor)
-        
-        #Crear funcion 2
-        for entrada_proceso in despachador.micros:
-            if(entrada_proceso.nombre == menor_desp[2]):
-                entrada_proceso.procesos_ejecucion.append(despachador.procesos_a_ejecutar[0])
-                despachador.procesos_a_ejecutar.pop(0)
 
-
-                #metodos que calculan valores de los procesos dentro de los micros
-                despachador.determinar_tiempo_vencimiento_quantum(entrada_proceso.procesos_ejecucion[0], quantum, cambioContexto)
-                despachador.determinar_tiempo_cambio_contexto(entrada_proceso.procesos_ejecucion[0], cambioContexto)
-                despachador.determinar_tiempo_bloqueo(entrada_proceso.procesos_ejecucion[0],tBloqueo)
-                despachador.determinar_tiempo_inicial(entrada_proceso.procesos_ejecucion[0],despachador.micros)
-                despachador.determinar_tiempo_total(entrada_proceso.procesos_ejecucion[0])
-                despachador.determinar_tiempo_final(entrada_proceso.procesos_ejecucion[0],despachador.micros)
-                despachador.determinar_tiempo_ejecucion_micro(entrada_proceso, entrada_proceso.procesos_ejecucion[0])
-
-            else:
-                pass
-
-
-    def main (despachador, pasar_procesos_a_micros):
         for procesos in despachador.procesos_a_ejecutar:
             print("Para proceso ", procesos.nombre)
-            pasar_procesos_a_micros(despachador, quantum, tBloqueo, cambioContexto)         
-        
-        
-    pasar_procesos_a_micros(despachador, quantum, tBloqueo, cambioContexto) 
+            #Crear funcion 1 que regrese menor_desp
+            menor = []
+            for menor_despachador in despachador.micros:
+                menor.append((len(menor_despachador.procesos_ejecucion),menor_despachador.procesos_ejecucion, menor_despachador.nombre))
+            menor_desp = min(menor)
+            
+            #Crear funcion 2
+            for entrada_proceso in despachador.micros:
+                if(entrada_proceso.nombre == menor_desp[2]):
+                    entrada_proceso.procesos_ejecucion.append(despachador.procesos_a_ejecutar[0])
+                    #despachador.procesos_a_ejecutar.pop(0)
 
+
+                    #metodos que calculan valores de los procesos dentro de los micros
+                    despachador.determinar_tiempo_vencimiento_quantum(entrada_proceso.procesos_ejecucion[0], quantum, cambioContexto)
+                    despachador.determinar_tiempo_cambio_contexto(entrada_proceso.procesos_ejecucion[0], cambioContexto)
+                    despachador.determinar_tiempo_bloqueo(entrada_proceso.procesos_ejecucion[0],tBloqueo)
+                    despachador.determinar_tiempo_inicial(entrada_proceso.procesos_ejecucion[0],despachador.micros)
+                    despachador.determinar_tiempo_total(entrada_proceso.procesos_ejecucion[0])
+                    despachador.determinar_tiempo_final(entrada_proceso.procesos_ejecucion[0],despachador.micros)
+                    despachador.determinar_tiempo_ejecucion_micro(entrada_proceso, entrada_proceso.procesos_ejecucion[0])
+
+                else:
+                    pass
+
+
+        
+    pasar_procesos_a_micros(despachador, quantum, tBloqueo, cambioContexto)  
+
+    for el in despachador.micros:
+        print("El micro", el.nombre)
+        for al in el.procesos_ejecucion:
+            print (al.nombre)
