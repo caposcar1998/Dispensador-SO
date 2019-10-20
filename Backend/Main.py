@@ -54,7 +54,7 @@ class Main:
                 despachador.determinar_tiempo_inicial(entrada_proceso.procesos_ejecucion[0],despachador.micros)
                 despachador.determinar_tiempo_total(entrada_proceso.procesos_ejecucion[0])
                 despachador.determinar_tiempo_final(entrada_proceso.procesos_ejecucion[0],despachador.micros)
-                despachador.determinar_tiempo_ejecucion_micro(entrada_proceso.procesos_ejecucion[0], despachador.micros)
+                despachador.determinar_tiempo_ejecucion_micro(entrada_proceso, entrada_proceso.procesos_ejecucion[0])
 
             else:
                 pass

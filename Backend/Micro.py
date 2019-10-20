@@ -5,7 +5,7 @@ class Micro:
     tiempo_inicial = None
     tiempo_final = None
     disponible = None
-    tiempoEjecucion = None
+    tiempoEjecucion = 0
 
     def __init__(self, tiempoInicial, disponible, nombre):
         self.tiempo_inicial = 0

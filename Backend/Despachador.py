@@ -47,7 +47,6 @@ class Despachador:
 
 
     def determinar_tiempo_final(self, obj, procesos_a_ejecutar):
-        print("Lelga al meotdo")
         obj.tiempo_final = obj.tiempo_inicial+ obj.tiempo_total
         print( obj.tiempo_final)
         print("paso determinar_tiempo_final")
@@ -55,4 +54,5 @@ class Despachador:
 
     def determinar_tiempo_ejecucion_micro(self, obj1, obj2):
         obj1.tiempoEjecucion += obj2.tiempo_final
+        print(obj1.tiempoEjecucion)
         print("paso determinar_tiempo_ejecucion_micro")

@@ -1,14 +1,14 @@
 class Proceso:
     
     nombre = None
-    tiempo_disponible = None 
-    tiempo_cambio_contexto = None
-    tiempo_ejecucion = None
-    tiempo_vencimiento_quantum = None
-    tiempo_bloqueo = None
-    tiempo_total = None
-    tiempo_inicial = None
-    tiempo_final = None
+    tiempo_disponible = 0 
+    tiempo_cambio_contexto = 0
+    tiempo_ejecucion = 0
+    tiempo_vencimiento_quantum = 0
+    tiempo_bloqueo = 0
+    tiempo_total = 0
+    tiempo_inicial = 0
+    tiempo_final = 0
 
     
 
